@@ -1,0 +1,45 @@
+# quiz_app.py
+
+def run_quiz():
+    questions = [
+        {
+            "question": "1. What is the capital of France?",
+            "options": ["A. Paris", "B. Berlin", "C. Rome", "D. Madrid"],
+            "answer": "A"
+        },
+        {
+            "question": "2. What is 2 + 2?",
+            "options": ["A. 3", "B. 4", "C. 5", "D. 6"],
+            "answer": "B"
+        },
+        {
+            "question": "3. What color do you get when you mix red and white?",
+            "options": ["A. Pink", "B. Purple", "C. Orange", "D. Green"],
+            "answer": "A"
+        }
+    ]
+
+    score = 0
+
+    print("🎉 Welcome to the Quiz!\n")
+
+    for q in questions:
+        print(q["question"])
+        for option in q["options"]:
+            print(option)
+
+        user_answer = input("Your answer (A/B/C/D): ").strip().upper()
+        while user_answer not in ['A', 'B', 'C', 'D']:
+            print("❗ Invalid input. Please enter A, B, C, or D.")
+            user_answer = input("Your answer (A/B/C/D): ").strip().upper()
+
+        if user_answer == q["answer"]:
+            print("✅ Correct!\n")
+            score += 1
+        else:
+            print(f"❌ Wrong! The correct answer is {q['answer']}.\n")
+
+    print(f"🏁 Quiz finished! Your score: {score} out of {len(questions)}")
+
+if __name__ == "__main__":
+    run_quiz()
